@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 
 // 簡単なあいさつ
-Route::get('/comments/mornig', function () {
-    return view('comments.mornig');
+Route::get('/comments/morning', function () {
+    return view('comments.morning');
 });
 
 Route::get('/comments/afternoon', function () {
@@ -39,4 +39,13 @@ Route::get('/comments/night', function () {
 // URLによってメッセージが変わる
 Route::get('/comments/freeword/{msg}', function ($msg) {
     return view('comments.freeword', ['msg' => $msg]);
+});
+
+
+// ランダムな挨拶を返す
+Route::get('/comments/random', function () {
+    $greetings = ['おはよう', 'こんにちは', 'こんばんわ', 'おやすみ'];
+    $randomGreeting = $greetings[array_rand($greetings)];
+    
+    return view('comments.random', ['greeting' => $randomGreeting]);
 });
