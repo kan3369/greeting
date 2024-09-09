@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/comments/mornig', function () {
+    return view('comments.mornig');
+});
+
+Route::get('/comments/afternoon', function () {
+    return view('comments.afternoon');
+});
+
+Route::get('/comments/evening', function () {
+    return view('comments.evening');
+});
+
+Route::get('/comments/night', function () {
+    return view('comments.night');
+});
