@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// 簡単なあいさつ
 Route::get('/comments/mornig', function () {
     return view('comments.mornig');
 });
@@ -31,4 +33,10 @@ Route::get('/comments/evening', function () {
 
 Route::get('/comments/night', function () {
     return view('comments.night');
+});
+
+
+// URLによってメッセージが変わる
+Route::get('/comments/freeword/{msg}', function ($msg) {
+    return view('comments.freeword', ['msg' => $msg]);
 });
