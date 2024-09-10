@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
-    //簡単なあいさつ
-    public function morning() 
+    //ランダムな挨拶を返す
+    public function random() 
     {
-        return view('comments.morning');
+        $greetings = ['おはよう', 'こんにちは', 'こんばんわ', 'おやすみ'];
+        $randomGreeting = $greetings[array_rand($greetings)];
+        return view('comments.random', ['greeting' => $randomGreeting]);
     }
     
 }

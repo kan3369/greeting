@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,9 +44,11 @@ Route::get('/comments/freeword/{msg}', function ($msg) {
 
 
 // ランダムな挨拶を返す
-Route::get('/comments/random', function () {
-    $greetings = ['おはよう', 'こんにちは', 'こんばんわ', 'おやすみ'];
-    $randomGreeting = $greetings[array_rand($greetings)];
-    
-    return view('comments.random', ['greeting' => $randomGreeting]);
-});
+// Route::get('/comments/random', function () {
+//     $greetings = ['おはよう', 'こんにちは', 'こんばんわ', 'おやすみ'];
+//     $randomGreeting = $greetings[array_rand($greetings)];
+
+//     return view('comments.random', ['greeting' => $randomGreeting]);
+// });
+
+Route::get('/comments/random', [MessageController::class, 'random']);
